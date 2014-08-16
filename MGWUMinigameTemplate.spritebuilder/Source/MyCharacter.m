@@ -13,6 +13,7 @@
     BOOL _isJumping;
     BOOL _isFalling;
     BOOL _isLanding;
+    BOOL _isRolling;
 }
 
 -(id)init {
@@ -22,6 +23,7 @@
         // We initialize _isIdling to be YES, because we want the character to start idling
         // (Our animation code relies on this)
         _isIdling = YES;
+        _isRolling = FALSE;
         // by default, a BOOL's value is NO, so the other BOOLs are NO right now
     }
     return self;
@@ -46,42 +48,45 @@
 }
 
 -(void)updateAnimations:(CCTime)delta {
-    // IDLE
-    // The animation should be idle if the character was and is stationary
-    // The character may only start idling if he or she was not already idling or falling
-    if (_velYPrev == 0 && self.physicsBody.velocity.y == 0 && !_isIdling && !_isFalling) {
-        [self resetBools];
-        _isIdling = YES;
-        [self.animationManager runAnimationsForSequenceNamed:@"AnimIsoIdling"];
+//    // IDLE
+//    // The animation should be idle if the character was and is stationary
+//    // The character may only start idling if he or she was not already idling or falling
+//    if (_velYPrev == 0 && self.physicsBody.velocity.y == 0 && !_isIdling && !_isFalling) {
+//        [self resetBools];
+//        _isIdling = YES;
+//        [self.animationManager runAnimationsForSequenceNamed:@"AnimIsoIdling"];
+//    }
+//    // JUMP
+//    // The animation should be jumping if the character wasn't moving up, but now is
+//    // The character may only start jumping if he or she was idling and isn't jumping
+//    else if (_velYPrev == 0 && self.physicsBody.velocity.y > 0 && _isIdling && !_isJumping) {
+//        [self resetBools];
+//        _isJumping = YES;
+//        [self.animationManager runAnimationsForSequenceNamed:@"AnimIsoJump"];
+//    }
+//    // FALLING
+//    // The animation should be falling if the character's moving down, but was moving up or stalled
+//    // The character may only start falling if he or she was jumping and isn't falling
+//    else if (_velYPrev >= 0 && self.physicsBody.velocity.y < 0 && _isJumping && !_isFalling) {
+//        [self resetBools];
+//        _isFalling = YES;
+//        [self.animationManager runAnimationsForSequenceNamed:@"AnimIsoFalling" tweenDuration:0.5f];
+//    }
+//    // LANDING
+//    // The animation sholud be landing if the character's stopped moving down (hit something)
+//    // The character may only start landing if he or she was falling and isn't landing
+//    else if (_velYPrev < 0 && self.physicsBody.velocity.y >= 0 && _isFalling && !_isLanding) {
+//        [self resetBools];
+//        _isLanding = YES;
+//        [self.animationManager runAnimationsForSequenceNamed:@"AnimIsoLand"];
+//    }
+//    
+//    // We track the previous velocity, since it's important to determining how the character is and was moving for animations
+//    _velYPrev = self.physicsBody.velocity.y;
+    if(!_isRolling){
+        [self.animationManager runAnimationsForSequenceNamed:@"AnimSideRoll"];
+        _isRolling=TRUE;
     }
-    // JUMP
-    // The animation should be jumping if the character wasn't moving up, but now is
-    // The character may only start jumping if he or she was idling and isn't jumping
-    else if (_velYPrev == 0 && self.physicsBody.velocity.y > 0 && _isIdling && !_isJumping) {
-        [self resetBools];
-        _isJumping = YES;
-        [self.animationManager runAnimationsForSequenceNamed:@"AnimIsoJump"];
-    }
-    // FALLING
-    // The animation should be falling if the character's moving down, but was moving up or stalled
-    // The character may only start falling if he or she was jumping and isn't falling
-    else if (_velYPrev >= 0 && self.physicsBody.velocity.y < 0 && _isJumping && !_isFalling) {
-        [self resetBools];
-        _isFalling = YES;
-        [self.animationManager runAnimationsForSequenceNamed:@"AnimIsoFalling" tweenDuration:0.5f];
-    }
-    // LANDING
-    // The animation sholud be landing if the character's stopped moving down (hit something)
-    // The character may only start landing if he or she was falling and isn't landing
-    else if (_velYPrev < 0 && self.physicsBody.velocity.y >= 0 && _isFalling && !_isLanding) {
-        [self resetBools];
-        _isLanding = YES;
-        [self.animationManager runAnimationsForSequenceNamed:@"AnimIsoLand"];
-    }
-    
-    // We track the previous velocity, since it's important to determining how the character is and was moving for animations
-    _velYPrev = self.physicsBody.velocity.y;
-    
 }
 
 // This method is called before setting one to YES, so that only one is ever YES at a time

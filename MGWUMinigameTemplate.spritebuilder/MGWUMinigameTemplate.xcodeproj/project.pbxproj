@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		65400FAB19743FE200EDBBED /* MGWUMinigameInstructions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65400FAA19743FE200EDBBED /* MGWUMinigameInstructions.m */; };
+		8B1DD448199DADD7003692D8 /* Gem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B1DD447199DADD7003692D8 /* Gem.m */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -63,6 +64,8 @@
 /* Begin PBXFileReference section */
 		65400FA919743FE200EDBBED /* MGWUMinigameInstructions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGWUMinigameInstructions.h; path = Source/MGWUMinigameInstructions.h; sourceTree = "<group>"; };
 		65400FAA19743FE200EDBBED /* MGWUMinigameInstructions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGWUMinigameInstructions.m; path = Source/MGWUMinigameInstructions.m; sourceTree = "<group>"; };
+		8B1DD446199DADD7003692D8 /* Gem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gem.h; path = Source/Gem.h; sourceTree = "<group>"; };
+		8B1DD447199DADD7003692D8 /* Gem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gem.m; path = Source/Gem.m; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				ED5FF05B19495F2F00571E13 /* MyCharacter.m */,
 				ED03BBE51942587100E23822 /* MyMinigame.h */,
 				ED03BBE61942587100E23822 /* MyMinigame.m */,
+				8B1DD446199DADD7003692D8 /* Gem.h */,
+				8B1DD447199DADD7003692D8 /* Gem.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				ED03BBE71942587100E23822 /* MyMinigame.m in Sources */,
 				ED03BBE41942563A00E23822 /* MGWUTestGame.m in Sources */,
+				8B1DD448199DADD7003692D8 /* Gem.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				ED5FF05C19495F2F00571E13 /* MyCharacter.m in Sources */,
 			);
